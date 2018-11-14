@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Restaurant from "./Restaurant";
 
 class Menu extends React.Component {
   state = {
@@ -36,23 +37,7 @@ class Menu extends React.Component {
     }
     return (
       <div>
-        <div className="container">
-          <div className="resto">
-            <div className="description">
-              {" "}
-              <h1>{this.state.restaurant.name}</h1>
-              <p>{this.state.restaurant.description}</p>
-            </div>
-            <div>
-              {" "}
-              <img
-                className="resto-picture"
-                alt=""
-                src={this.state.restaurant.picture}
-              />
-            </div>
-          </div>
-        </div>
+        <Restaurant myRestaurant={this.state.restaurant} />
         <div className="bg-colored">
           <div className="container">
             <div className="items">{menuItems}</div>
