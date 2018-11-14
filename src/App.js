@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, link } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
+import Menu from "./components/Menu";
 import Header from "./components/Header";
 import "./App.css";
 
@@ -12,13 +12,12 @@ class App extends Component {
         <div>
           <Header />
 
+          <Menu />
           <Route exact={true} path="/" component={Home} />
+          <Route path="/menu" component={Menu} />
         </div>
       </Router>
     );
-  }
-  componentDidMount() {
-    axios.get("https://deliveroo-api.now.sh/menu").then(response => {});
   }
 }
 
