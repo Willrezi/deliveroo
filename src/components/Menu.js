@@ -12,19 +12,25 @@ class Menu extends React.Component {
     const menuKey = Object.entries(this.state.menu);
 
     for (let i = 0; i < menuKey.length; i++) {
-      menuItems.push(<h2>{menuKey[i][0]}</h2>);
+      menuItems.push(
+        <div>
+          <h3>{menuKey[i][0]}</h3>
+        </div>
+      );
       for (let j = 0; j < menuKey[i][1].length; j++) {
         menuItems.push(
-          <div className="card">
-            <h3>{menuKey[i][1][j].title}</h3>
-            <p>{menuKey[i][1][j].description.slice(0, 50) + "..."}</p>
-            <p>{menuKey[i][1][j].price}</p>
-            <img
-              className="item-picture"
-              alt=""
-              src={menuKey[i][1][j].picture}
-            />
-          </div>
+          <ul>
+            <li className="card">
+              <div className="menu">
+                <h4>{menuKey[i][1][j].title}</h4>
+                <p>{menuKey[i][1][j].description.slice(0, 50)}</p>
+                <p>{menuKey[i][1][j].price.replace(".", ",") + " €"}</p>
+              </div>
+              <div className="card-picture">
+                <img alt="" src={menuKey[i][1][j].picture} />
+              </div>
+            </li>
+          </ul>
         );
       }
     }
@@ -49,7 +55,7 @@ class Menu extends React.Component {
         </div>
         <div className="bg-colored">
           <div className="container">
-            <ul className="items">{menuItems}</ul>
+            <div className="items">{menuItems}</div>
           </div>
         </div>
       </div>
