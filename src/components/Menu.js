@@ -4,11 +4,13 @@ import Restaurant from "./Restaurant";
 import Header from "./Header";
 import Card from "./Card";
 import MenuContainer from "./MenuContainer";
+import Basket from "./Basket";
 
 class Menu extends React.Component {
   state = {
     restaurant: {},
-    menu: {}
+    menu: {},
+    basket: []
   };
 
   render() {
@@ -37,6 +39,8 @@ class Menu extends React.Component {
         <Restaurant myRestaurant={this.state.restaurant} />
         <div className="bg-colored">
           <div className="container">
+            {" "}
+            <Basket />
             <div className="items">{menuContainer}</div>
           </div>
         </div>

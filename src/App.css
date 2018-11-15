@@ -3,8 +3,20 @@
   border-bottom: 1px solid #f4f5f5;
 }
 
+h4 {
+  margin-top: 0;
+  padding-right: 10px;
+}
+
 p {
   font-size: 14px;
+  margin: 0;
+  margin-bottom: 10px;
+  color: lightgray;
+}
+
+ul {
+  padding: 0;
 }
 
 .logo {
@@ -48,7 +60,7 @@ p {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  flex-direction: row;
+  flex-direction: column;
   flex-basis: 66%;
 }
 
@@ -57,18 +69,20 @@ p {
 }
 
 .card {
-  width: 360px;
+  width: 340px;
   height: 130px;
   background-color: white;
   display: flex;
   padding: 16px;
+  margin-right: 16px;
   margin-bottom: 16px;
 }
 
-.card-picture img {
+.card-picture > img {
   height: 95px;
   width: 95px;
-  flex: 1;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .menu {
@@ -78,4 +92,31 @@ p {
 h3 {
   padding-top: 48px;
   padding-bottom: 16px;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 10px;
+}
+
+.basket-component {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+li {
+  list-style: none;
+}
+.validate {
+  background-color: lightgray;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
