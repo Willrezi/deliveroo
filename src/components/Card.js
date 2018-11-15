@@ -11,7 +11,7 @@ class Card extends React.Component {
 
   render() {
     return (
-      <div className="card">
+      <div className="card" onClick={this.props.onClick}>
         <div className="menu">
           <h4>{this.props.label}</h4>
           <p>{this.props.description}</p>
