@@ -5,7 +5,9 @@ class Header extends React.Component {
   render() {
     return (
       <div id="header">
-        <Logo url="http://www.deliveroo.fr/" />
+        <div className="container">
+          <Logo url="http://www.deliveroo.fr/" />
+        </div>
       </div>
     );
   }
