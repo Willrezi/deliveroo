@@ -68,6 +68,7 @@ class Restaurant extends React.Component {
             <div className="items">{menuContainer}</div>
             <Cart
               cart={this.state.cart}
+              myRestaurant={this.state.restaurant.name}
               onUpdate={(id, qty) => {
                 const newCart = [...this.state.cart];
                 for (let i = 0; i < newCart.length; i++) {

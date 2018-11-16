@@ -1,5 +1,5 @@
 import React from "react";
-import { link, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Cart extends React.Component {
   render() {
@@ -60,8 +60,9 @@ class Cart extends React.Component {
         <Link
           to={{
             pathname: "/checkout",
-            total: total,
-            submittedCart: this.props.cart
+            submittedRestaurant: this.props.myRestaurant,
+            submittedCart: this.props.cart,
+            total: total
           }}
         >
           <button className="validate">Valider mon panier</button>
