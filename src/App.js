@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
-import Menu from "./components/Menu";
+import Restaurant from "./components/Restaurant";
 import "./App.css";
 
 class App extends Component {
@@ -9,9 +9,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Menu />
+          {/* <Menu /> */}
           <Route exact={true} path="/" component={Home} />
-          <Route path="/menu" component={Menu} />
+          <Route path="/restaurant" component={Restaurant} />
         </div>
       </Router>
     );
