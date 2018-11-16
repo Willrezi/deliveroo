@@ -106,7 +106,7 @@ h3 {
 }
 
 .basket-component {
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   width: 320px;
   flex-direction: column;
@@ -114,6 +114,10 @@ h3 {
   background-color: white;
   padding: 10px;
   border-radius: 4px;
+}
+
+.basket {
+  text-align: center;
 }
 
 li {

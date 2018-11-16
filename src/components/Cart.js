@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 class Cart extends React.Component {
   render() {
     if (this.props.cart.length === 0) {
-      return <p>Votre panier est vide</p>;
+      return (
+        <div className="basket-component">
+          <button className="validate">Valider mon panier</button>
+          <p className="basket">Votre panier est vide</p>
+        </div>
+      );
     }
 
     const products = [];
@@ -62,6 +67,8 @@ class Cart extends React.Component {
             pathname: "/checkout",
             submittedRestaurant: this.props.myRestaurant,
             submittedCart: this.props.cart,
+            sousTotal: sousTotal,
+            fees: fees,
             total: total
           }}
         >
