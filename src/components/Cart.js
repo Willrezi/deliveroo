@@ -1,4 +1,5 @@
 import React from "react";
+import { link, Link } from "react-router-dom";
 
 class Cart extends React.Component {
   render() {
@@ -56,7 +57,15 @@ class Cart extends React.Component {
 
     return (
       <div className="basket-component">
-        <button className="validate">Valider mon panier</button>
+        <Link
+          to={{
+            pathname: "/checkout",
+            total: total,
+            submittedCart: this.props.cart
+          }}
+        >
+          <button className="validate">Valider mon panier</button>
+        </Link>
         <div>
           <ul>{products}</ul>
         </div>
