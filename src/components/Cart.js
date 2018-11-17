@@ -87,7 +87,7 @@ class Cart extends React.Component {
                 {sousTotal.toFixed(2).replace(".", ",") + " €"}
               </span>
             </li>
-            <li>
+            <li className="fees">
               <span>Frais de livraison</span>
               <span>{fees.toFixed(2).replace(".", ",") + " €"}</span>
             </li>

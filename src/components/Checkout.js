@@ -23,11 +23,21 @@ class Checkout extends React.Component {
 
     for (let i = 0; i < this.props.location.submittedCart.length; i++) {
       confirmedCart.push(
-        <span>{this.props.location.submittedCart[i].quantity}</span>,
-        <p>X</p>,
-        <span className="product">
-          {this.props.location.submittedCart[i].name}
-        </span>
+        <li>
+          <span>{this.props.location.submittedCart[i].quantity}</span>
+          <span className="multiply">x</span>
+          <span className="product">
+            {this.props.location.submittedCart[i].name}
+          </span>
+          <span className="price">
+            {(
+              this.props.location.submittedCart[i].price *
+              this.props.location.submittedCart[i].quantity
+            )
+              .toFixed(2)
+              .replace(".", ",") + " €"}
+          </span>
+        </li>
       );
     }
 
@@ -35,59 +45,70 @@ class Checkout extends React.Component {
       <div>
         <Header />
         <div className="bg-colored">
+          <div />
+
           <div className="container">
-            <h2>{this.props.location.submittedRestaurant}</h2>
             <div className="formulaire">
-              <h2>Adresse de livraison</h2>
+              <h1>{this.props.location.submittedRestaurant}</h1>
+              <h2 className="adresse">Adresse de livraison</h2>
               <form
                 onSubmit={() => {
                   // axios.post("", {});
                 }}
               >
-                <div>
-                  <label>Etage et numéro d'appartement</label>
-                  <input
-                    type="text"
-                    placeholder="ex : Appartement n°15"
-                    onChange={event => {
-                      this.setState({ appart: event.target.value });
-                    }}
-                    value={this.state.appart}
-                  />
-                  <label>Digicode</label>
-                  <input
-                    type="text"
-                    placeholder="ex : B123"
-                    onChange={event => {
-                      this.setState({ digicode: event.target.value });
-                    }}
-                    value={this.state.digicode}
-                  />
-                  <div>
-                    <label>Adresse</label>
+                <div className="two-columns">
+                  <div className="input left">
+                    <label>Etage et numéro d'appartement</label>
                     <input
                       type="text"
-                      placeholder="ex : 100 rue de Rivoli"
+                      placeholder="ex : Appartement n°15"
                       onChange={event => {
-                        this.setState({ adress: event.target.value });
+                        this.setState({ appart: event.target.value });
                       }}
-                      value={this.state.adress}
+                      value={this.state.appart}
                     />
-                    <p>
-                      Inclut le nom de votre rue et le numéro de votre batiment
-                    </p>
                   </div>
-                  <div>
+                  <div className="input right">
+                    <label>Digicode</label>
+                    <input
+                      type="text"
+                      placeholder="ex : B123"
+                      onChange={event => {
+                        this.setState({ digicode: event.target.value });
+                      }}
+                      value={this.state.digicode}
+                    />
+                  </div>
+                </div>
+
+                <div className="input">
+                  <label>Adresse</label>
+                  <input
+                    type="text"
+                    placeholder="ex : 100 rue de Rivoli"
+                    onChange={event => {
+                      this.setState({ adress: event.target.value });
+                    }}
+                    value={this.state.adress}
+                  />
+                  <p>
+                    Inclut le nom de votre rue et le numéro de votre batiment
+                  </p>
+                </div>
+                <div className="two-columns">
+                  <div className="input left">
                     <label>Code postal</label>
                     <input
-                      type="text"
+                      type="number"
                       placeholder="ex : 75001"
                       onChange={event => {
                         this.setState({ zipCode: event.target.value });
                       }}
                       value={this.state.zipCode}
                     />
-                    <label>city</label>
+                  </div>
+                  <div className="input right">
+                    <label>Ville</label>
                     <input
                       type="text"
                       placeholder="ex : Paris"
@@ -97,39 +118,52 @@ class Checkout extends React.Component {
                       value={this.state.city}
                     />
                   </div>
-                  <div>
-                    <label>Numéro de téléphone</label>
-                    <input
-                      type="text"
-                      placeholder="ex : + 33 9 77 55 03 30"
-                      onChange={event => {
-                        this.setState({ phone: event.target.value });
-                      }}
-                      value={this.state.phone}
-                    />
-                  </div>
-                  <div>
-                    <label>Instructions pour votre livreur</label>
-                    <textarea placeholder="ex: C'est la porte noir près de l'animalerie." />
-                  </div>
+                </div>
+                <div className="input">
+                  <label>Numéro de téléphone</label>
+                  <input
+                    type="tel"
+                    placeholder="ex : + 33 9 77 55 03 30"
+                    onChange={event => {
+                      this.setState({ phone: event.target.value });
+                    }}
+                    value={this.state.phone}
+                  />
+                </div>
+                <div className="input">
+                  <label>Instructions pour votre livreur</label>
+                  <textarea className="textarea" rows="3" placeholder="ex: C'est la porte noir près de l'animalerie. Merci d'appeler lorsque vous arrivez." />
                 </div>
               </form>
-              <hr />
-              <span>Votre commande arrivera dans 15 - 25 minutes</span>
-              <button type="submit">Confirmer et payer</button>
-
+              <div className="payed">
+                <span>
+                  Votre commande arrivera dans <strong>15 - 25 minutes</strong>
+                </span>
+                <button className="btn-confirmed" type="submit">
+                  Confirmer & payer
+                </button>
+              </div>
+            </div>
+            <div className="basket-component">
+              {" "}
               <ul>{confirmedCart}</ul>
+              <hr />
               <div className="total">
                 <ul>
                   <li>
                     <span>Sous-Total</span>
                     <span className="price">
-                      {this.props.location.sousTotal}
+                      {this.props.location.sousTotal
+                        .toFixed(2)
+                        .replace(".", ",") + " €"}
                     </span>
                   </li>
                   <li>
                     <span>Frais de livraison</span>
-                    <span>{this.props.location.fees}</span>
+                    <span>
+                      {this.props.location.fees.toFixed(2).replace(".", ",") +
+                        " €"}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -139,7 +173,10 @@ class Checkout extends React.Component {
                   <li>
                     {" "}
                     <span className="price">Total</span>
-                    <span>{this.props.location.total}</span>
+                    <span>
+                      {this.props.location.total.toFixed(2).replace(".", ",") +
+                        " €"}
+                    </span>
                   </li>
                 </ul>
               </div>

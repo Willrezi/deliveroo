@@ -110,7 +110,7 @@ h3 {
   display: flex;
   width: 320px;
   flex-direction: column;
-  /* align-items: center; */
+  /* text-align: center; */
   background-color: white;
   padding: 10px;
   border-radius: 4px;
@@ -144,10 +144,13 @@ li {
   width: 16px;
   text-align: center;
 }
+.fees {
+  margin-top: 10px;
+}
 
 ul {
-  margin: 0 15px;
-  margin-bottom: 15px;
+  margin: 15px 15px;
+  /* margin-bottom: 15px; */
   /* display: flex;
   flex-direction: column;
   justify-content: space-around; */
@@ -184,7 +187,10 @@ span {
   align-self: center;
   flex-wrap: wrap;
   justify-content: flex-start;
-  /* margin-left: 15px; */
+}
+
+.multiply {
+  margin-right: 16px;
 }
 
 .price {
@@ -193,10 +199,85 @@ span {
 .total  {
   display: flex;
   justify-content: space-between;
-  /* align-items: flex-start; */
+  align-items: center;
+  margin: 20px 0;
 }
 
 .formulaire {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
+  flex: 2;
+  background-color: white;
+  padding: 50px;
+  margin-right: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.formulaire input {
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid #dddddd;
+}
+
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.left {
+  flex: 1;
+  margin-right: 5px;
+}
+.right {
+  flex: 1;
+  margin-left: 5px;
+}
+label {
+  margin-bottom: 10px;
+}
+
+textarea {
+  border: 1px solid #dddddd;
+  font-size: 15px;
+  padding: 10px;
+
+}
+
+.payed {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #f4f5f5;
+  padding: 30px 0;
+  text-align: center;
+  align-items: center;
+}
+
+.btn-confirmed {
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 30px;
+  width: 100%;
+  background-color: #6ad3c9;
+  color: white;
+  border-color: white;
 }
