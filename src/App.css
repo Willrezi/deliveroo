@@ -241,6 +241,10 @@ h2 {
   margin-bottom: 20px;
 }
 
+input:focus,
+textarea:focus {
+  border-color: #00ccbc;
+}
 .left {
   flex: 1;
   margin-right: 5px;
@@ -257,7 +261,6 @@ textarea {
   border: 1px solid #dddddd;
   font-size: 15px;
   padding: 10px;
-
 }
 
 .payed {
@@ -271,7 +274,7 @@ textarea {
 
 .btn-confirmed {
   height: 40px;
-  padding: 0 10px;
+
   border-radius: 5px;
   font-size: 15px;
   font-weight: bold;
@@ -280,4 +283,8 @@ textarea {
   background-color: #6ad3c9;
   color: white;
   border-color: white;
+}
+
+.checkout-form {
+  width: 100%;
 }

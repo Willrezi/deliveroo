@@ -60,7 +60,7 @@ class Restaurant extends React.Component {
 
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
         <MenuRestaurant myRestaurant={this.state.restaurant} />
         <div className="bg-colored">
           <div className="container">

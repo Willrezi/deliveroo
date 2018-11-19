@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "./Header";
+import { Elements } from "react-stripe-elements";
+import CheckoutForm from "./CheckoutForm";
 
 class Checkout extends React.Component {
   state = {
     appart: "",
     digicode: "",
-    adress: "",
+    address: "",
     zipCode: "",
     city: "",
     phone: "",
@@ -13,11 +14,11 @@ class Checkout extends React.Component {
   };
 
   render() {
-    console.log(this.props.location.submittedRestaurant);
-    console.log(this.props.location.submittedCart);
-    console.log(this.props.location.sousTotal);
-    console.log(this.props.location.fees);
-    console.log(this.props.location.total);
+    // console.log(this.props.location.submittedRestaurant);
+    // console.log(this.props.location.submittedCart);
+    // console.log(this.props.location.sousTotal);
+    // console.log(this.props.location.fees);
+    // console.log(this.props.location.total);
 
     const confirmedCart = [];
 
@@ -43,7 +44,7 @@ class Checkout extends React.Component {
 
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
         <div className="bg-colored">
           <div />
 
@@ -52,7 +53,9 @@ class Checkout extends React.Component {
               <h1>{this.props.location.submittedRestaurant}</h1>
               <h2 className="adresse">Adresse de livraison</h2>
               <form
-                onSubmit={() => {
+                onSubmit={event => {
+                  event.preventDefault();
+                  console.log(this.state);
                   // axios.post("", {});
                 }}
               >
@@ -87,9 +90,9 @@ class Checkout extends React.Component {
                     type="text"
                     placeholder="ex : 100 rue de Rivoli"
                     onChange={event => {
-                      this.setState({ adress: event.target.value });
+                      this.setState({ address: event.target.value });
                     }}
-                    value={this.state.adress}
+                    value={this.state.address}
                   />
                   <p>
                     Inclut le nom de votre rue et le numéro de votre batiment
@@ -99,7 +102,7 @@ class Checkout extends React.Component {
                   <div className="input left">
                     <label>Code postal</label>
                     <input
-                      type="number"
+                      type="text"
                       placeholder="ex : 75001"
                       onChange={event => {
                         this.setState({ zipCode: event.target.value });
@@ -132,17 +135,30 @@ class Checkout extends React.Component {
                 </div>
                 <div className="input">
                   <label>Instructions pour votre livreur</label>
-                  <textarea className="textarea" rows="3" placeholder="ex: C'est la porte noir près de l'animalerie. Merci d'appeler lorsque vous arrivez." />
+                  <textarea
+                    className="textarea"
+                    rows="3"
+                    placeholder="ex: C'est la porte noir près de l'animalerie. Merci d'appeler lorsque vous arrivez."
+                  />
+                </div>
+                <div className="payed">
+                  <span>
+                    Votre commande arrivera dans{" "}
+                    <strong>15 - 25 minutes</strong>
+                  </span>
+                  <Elements>
+                    <CheckoutForm
+                      address1={this.state.address}
+                      city={this.state.city}
+                      zip={this.state.zipCode}
+                      amountPayed={this.props.location.total}
+                    />
+                  </Elements>
+                  {/* <button className="btn-confirmed" type="submit">
+                    Confirmer & payer
+                  </button> */}
                 </div>
               </form>
-              <div className="payed">
-                <span>
-                  Votre commande arrivera dans <strong>15 - 25 minutes</strong>
-                </span>
-                <button className="btn-confirmed" type="submit">
-                  Confirmer & payer
-                </button>
-              </div>
             </div>
             <div className="basket-component">
               {" "}
