@@ -86,8 +86,7 @@ class Restaurant extends React.Component {
       </div>
     );
   }
-
-  componentDidMount() {
+componentDidMount() {
     axios.get("https://deliveroo-api.now.sh/menu").then(response => {
       this.setState({
         restaurant: response.data.restaurant,

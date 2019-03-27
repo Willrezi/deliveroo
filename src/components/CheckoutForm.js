@@ -36,7 +36,7 @@ class CheckoutForm extends Component {
         console.log("Token:", token);
         // On poste l'objet Token à notre back-end
         axios
-          .post("https://a7e64680.ngrok.io/api", {
+          .post("https://668c42db.ngrok.io/api", {
             token,
             amount: Number(this.props.amountPayed) * 100
           })
